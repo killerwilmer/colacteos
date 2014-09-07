@@ -12,9 +12,9 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 //----------------------------------------------
 //nombre de la base de datos
 //----------------------------------------------
-private static final String bd = "colacteos";
+private static final String bd = "colacteos.db";
 //--------------------------------------------
-//versi�n de la base de datos
+//versión de la base de datos
 //--------------------------------------------
 private static final int version =16;
 //-------------------------------------------
@@ -147,7 +147,7 @@ String cultivo="CREATE TABLE SAT_cultivo(cod_cultivo SMALLINT PRIMARY KEY UNIQUE
 //campos de tabla de SAT asociado
 //-------------------------------------------------------------
 
-public final static String SAT_terceros_asociados ="asociados";
+public final static String SAT_terceros_asociados ="SAT_terceros_asociados";
 public final String nit_asociado="nit_asociado";
 public final String cod_finca= "cod_finca";
 public final String nombre_Completo= "nombre_completo";
