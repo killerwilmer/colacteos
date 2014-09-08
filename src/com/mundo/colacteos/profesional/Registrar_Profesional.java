@@ -61,24 +61,29 @@ public class Registrar_Profesional extends Activity {
 			String titulos =titulo.getText().toString();
 			String institu =institucion.getText().toString();
 			
-			long i=0;
-			try {
-				i= objprofesionaldao.addRegistroProfesional(nits, nombre, apellido, titulos, institu);
-			} catch (Exception e) {
-				
-				e.printStackTrace();
-			}
-			if(i==0){
-				Toast.makeText(getApplicationContext(), "Profesional No Registrado", 1000).show();
-			}
-			else{
-				Toast.makeText(getApplicationContext(), "Profesional Registrado con Exito", 1000).show();
-				nombres.setText("");
-				apellidos.setText("");
-				nit.setText("");
-				titulo.setText("");
-				institucion.setText("");
-				nombres.requestFocus();
+			if (nombre.trim().equals("") || apellido.trim().equals("") || nits.trim().equals("") || titulos.trim().equals("") || institu.trim().equals("")){
+				Toast.makeText(getApplicationContext(), "Todos los campos son necesarios", 1000).show();
+			}else{
+				long estado=0;
+				try {
+					estado= objprofesionaldao.addRegistroProfesional(nits, nombre, apellido, titulos, institu);
+					//si ocurrio un error al insertar devuelve -1
+				} catch (Exception e) {
+					
+					e.printStackTrace();
+				}
+				if(estado== -500){
+					Toast.makeText(getApplicationContext(), "Este nit ya esta registrdo", 1000).show();
+				}
+				else{
+					Toast.makeText(getApplicationContext(), "Profesional Registrado con Exito", 1000).show();
+					nombres.setText("");
+					apellidos.setText("");
+					nit.setText("");
+					titulo.setText("");
+					institucion.setText("");
+					nombres.requestFocus();
+				}
 			}
 		}
 	});

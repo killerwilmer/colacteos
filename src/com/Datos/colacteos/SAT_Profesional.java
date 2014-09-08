@@ -12,7 +12,7 @@ public class SAT_Profesional {
 	
 	public SAT_Profesional(String Nit, String Nombres, String Apellidos, String Titulo, String Institucion){
 	this.Nit=Nit;
-	this.Apellidos=Apellidos;
+	this.Nombres=Nombres;
 	this.Apellidos=Apellidos;
 	this.Titulo=Titulo;
 	this.Institucion= Institucion;
