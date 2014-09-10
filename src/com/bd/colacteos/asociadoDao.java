@@ -86,7 +86,8 @@ public class asociadoDao {
 		//--------------------------------------------------------------------------
 		
 		public Cursor leerAsociados() {
-			String[] allColumns = new String[] {"rowid AS _id", dbHelper.nit_asociado, dbHelper.nombre_Completo, dbHelper.Direccion, dbHelper.telefono, dbHelper.Tipo_identificacion };
+			String[] allColumns = new String[] {"rowid AS _id", dbHelper.nit_asociado, dbHelper.nombre_Completo};
+					//dbHelper.Direccion, dbHelper.telefono, dbHelper.Tipo_identificacion };
 			Cursor c = bd.query(SQLiteHelper.SAT_terceros_asociados, allColumns, null, null, null,null, null);
 			if (c != null) {
 				c.moveToFirst();
@@ -94,6 +95,7 @@ public class asociadoDao {
 			return c;
 		}
 		
+
 		//------------------------------------------------------------------------
 		//metodo para eliminar un asociado
 		//------------------------------------------------------------------------

@@ -181,48 +181,7 @@ public class Registrar_Asociado extends Activity implements
 			}
 		});
 
-		/*
-		 * registrar.setOnClickListener(new View.OnClickListener() {
-		 * 
-		 * @Override public void onClick(View v) {
-		 * 
-		 * String nombre=nombres.getText().toString(); //String
-		 * nit=nit.toString(); String codFinca=codFinca.getBytes().toString();
-		 * String tipo=tipoIdentificacion.toString(); String
-		 * direccion=direccion.toString(); String
-		 * telefono=telefono.getBytes().toString();
-		 * 
-		 * long i=0; try { i= asociadoDao.crearAsociado(nits, codFinca, nombre,
-		 * direccion, tipo, telefono); } catch (Exception e) {
-		 * 
-		 * e.printStackTrace(); } if(i==0){
-		 * Toast.makeText(getApplicationContext(), "Asociado No Registrado",
-		 * 1000).show(); } else{ Toast.makeText(getApplicationContext(),
-		 * "Asociado Registrado con Exito", 1000).show(); nombres.setText("");
-		 * /*nit.setText(""); codFinca.setText(""); tipo.setText("");
-		 * direccion.setText(""); telefono.setTe.requestFocus();
-		 */
 	}
-
-	// }
-
-	// });*/
-	/*
-	 * if(bundle!=null){
-	 * 
-	 * int id = bundle.getInt("idM"); SQLiteHelper bd = new SQLiteHelper(this);
-	 * SQLiteDatabase obj = bd.getWritableDatabase(); String sql
-	 * ="SELECT * FROM SAT_terceros_asociados where nit="+ nit; Cursor consultar
-	 * =obj.rawQuery(sql, null); consultar.moveToFirst(); String d
-	 * =consultar.getString(1); String v =consultar.getString(3);
-	 * nombres.setText(consultar.getString(1));
-	 * direccion.setText(consultar.getString(3));
-	 * telefono.setText(consultar.getString(4));
-	 * 
-	 * 
-	 * 
-	 * obj.close(); }
-	 */
 
 	@Override
 	public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,

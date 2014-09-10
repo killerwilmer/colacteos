@@ -48,17 +48,22 @@ public class Utilidades_Asociado extends Activity{
 	// lista asociados
 	//-------------------------------------------------------------
 			
-			/*asociadoDao	obj= new asociadoDao(this);
-			obj.abrir();
-			ListView lv=(ListView)findViewById(R.id.lista_asociados);
-			Cursor c=obj.leerAsociados();
-			SQLiteHelper SqlHelper1=new SQLiteHelper(this);
-			String[] f = new String[] { SqlHelper1.nombre_Completo, SqlHelper1.nit_asociado}; 
-			int[] t = new int[] { R.id.txtNomAs, R.id.txtNitaso };
-			SimpleCursorAdapter adapter= new SimpleCursorAdapter(Utilidades_Asociado.this, R.layout.adaptador_asociado, c, f, t);	
-			adapter.notifyDataSetChanged();
-			lv.setAdapter(adapter);*/
-	
+	//-------------------------------------------------------------
+		// lista asociados
+		//-------------------------------------------------------------
+				
+	asociadoDao	obj= new asociadoDao(this);
+	obj.abrir();
+	ListView lv=(ListView)findViewById(R.id.lista_asociados);
+	Cursor c=obj.leerAsociados();
+	SQLiteHelper SqlHelper1=new SQLiteHelper(this);
+	String[] f = new String[] { SqlHelper1.nit_asociado, SqlHelper1.nombre_Completo}; 
+	int[] t = new int[] {R.id.txtNitaso, R.id.txtNomAs };
+	SimpleCursorAdapter adapter= new SimpleCursorAdapter(Utilidades_Asociado.this, R.layout.adaptador_asociado, c, f, t);	
+	adapter.notifyDataSetChanged();
+	lv.setAdapter(adapter);
+
+
 	// ------------------------------------------------------------------
 	// action del boton adicionar asociado
 	// ------------------------------------------------------------------
