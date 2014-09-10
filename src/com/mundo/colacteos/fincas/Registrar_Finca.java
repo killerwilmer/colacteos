@@ -62,27 +62,28 @@ public class Registrar_Finca extends Activity {
 		tipoOrdeno = (Spinner) findViewById(R.id.spnTipoOrden);
 		departamento = (Spinner) findViewById(R.id.spnDeparta);
 
-		// fincaDao= new fincaDao(this);
-		// fincaDao.abrir();
+		fincaDao= new fincaDao(this);
+		fincaDao.abrir();
 
 		// fincaDao.agregarfinca("1", "las palmas",
 		// "108591876","pasto","chachagui", "12", "10", "30", "contratada", "1",
 		// "Nariño");
-		
-		//------------------------------------------------------------------------
-		//spiner codigo asociado
-		//------------------------------------------------------------------------
-		asociadoDao	dbcon= new asociadoDao(this);
+
+		// ------------------------------------------------------------------------
+		// spiner codigo asociado
+		// ------------------------------------------------------------------------
+		asociadoDao dbcon = new asociadoDao(this);
 		dbcon.abrir();
-		nitPropietario=(Spinner)findViewById(R.id.spnNitPrio);
-		Cursor cursor=dbcon.darCodigoAsociado();
+		nitPropietario = (Spinner) findViewById(R.id.spnNitPrio);
+		Cursor cursor = dbcon.darCodigoAsociado();
 		SQLiteHelper SqlHelper;
-		SqlHelper=new SQLiteHelper(this);
-		String[] from = new String[] { SqlHelper.nit_asociado}; 
-		//SqlHelper.cod_sistema, 
+		SqlHelper = new SQLiteHelper(this);
+		String[] from = new String[] { SqlHelper.nit_asociado };
+		// SqlHelper.cod_sistema,
 		int[] to = new int[] { android.R.id.text1 };
-		//android.R.id.text2};
-		SimpleCursorAdapter a= new SimpleCursorAdapter(Registrar_Finca.this, android.R.layout.simple_list_item_1, cursor, from, to);	
+		// android.R.id.text2};
+		SimpleCursorAdapter a = new SimpleCursorAdapter(Registrar_Finca.this,
+				android.R.layout.simple_list_item_1, cursor, from, to);
 		a.notifyDataSetChanged();
 		nitPropietario.setAdapter(a);
 
@@ -98,7 +99,7 @@ public class Registrar_Finca extends Activity {
 		bundle = getIntent().getExtras();
 
 		// --------------------------------------------------------------------------------
-		// spinner de tipo orde�o
+		// spinner de tipo ordeño
 		// ------------------------------------------------------------------------------
 
 		ArrayAdapter ad = ArrayAdapter.createFromResource(this,
@@ -149,8 +150,9 @@ public class Registrar_Finca extends Activity {
 
 				String codFinca = codigoFinca.getText().toString();
 				String nombreF = nombreFinca.getText().toString();
-				//String nittProp=nitPropietario.getSelectedItem().toString();
-				String nittProp = propietario.getString(propietario.getColumnIndex("nit_asociado"));
+				// String nittProp=nitPropietario.getSelectedItem().toString();
+				String nittProp = propietario.getString(propietario
+						.getColumnIndex("nit_asociado"));
 				// ....
 				String ciudades = ciudad.getText().toString();
 				String ubicaciones = ubicacion.getText().toString();
@@ -177,29 +179,42 @@ public class Registrar_Finca extends Activity {
 					Toast.makeText(getApplicationContext(),
 							"Todos los campos son necesarios", 1000).show();
 				} else {
-					fincaDao.insertarFinca(nombreF, nittProp, ciudades,
-							ubicaciones, hectarea, latitudes, longitudd,
-							manoDeObra, tipoDeOrdeno, departamentos);
+					long estado = 0;
+					try {
+						estado = fincaDao.agregarfinca(codFinca, nombreF, nittProp,
+								ciudades, ubicaciones, hectarea, latitudes,
+								longitudd, manoDeObra, tipoDeOrdeno, departamentos);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					
 
-					if (fincaDao == null) {
+					if (estado == -500) {
 						Toast.makeText(getApplicationContext(),
-								"La finca No se ha Registrado", 1000).show();
-
+								"Este codigo ya esta registrdo", 1000).show();
 					} else {
-						Toast.makeText(getApplicationContext(),
-								"Registro Insertado", 1000).show();
-						codigoFinca.setText("");
-						nombreFinca.setText("");
-						nitPropietario.getSelectedItem();
-						ciudad.setText("");
-						ubicacion.setText("");
-						hectareas.setText("");
-						latitud.setText("");
-						longitud.setText("");
-						manoObra.getSelectedItem();
-						tipoOrdeno.getSelectedItem();
-						departamento.getSelectedItem();
 
+						if (fincaDao == null) {
+							Toast.makeText(getApplicationContext(),
+									"La finca No se ha Registrado", 1000)
+									.show();
+
+						} else {
+							Toast.makeText(getApplicationContext(),
+									"Registro Insertado", 1000).show();
+							codigoFinca.setText("");
+							nombreFinca.setText("");
+							nitPropietario.getSelectedItem();
+							ciudad.setText("");
+							ubicacion.setText("");
+							hectareas.setText("");
+							latitud.setText("");
+							longitud.setText("");
+							manoObra.getSelectedItem();
+							tipoOrdeno.getSelectedItem();
+							departamento.getSelectedItem();
+
+						}
 					}
 				}
 			}

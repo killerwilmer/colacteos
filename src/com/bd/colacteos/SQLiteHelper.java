@@ -32,7 +32,7 @@ public final String password = "password";
 //sentencia  para crear tablas usuario
 //----------------------------------------22------------------
 	
-String sql = "CREATE TABLE tabla_usuario( id_usuario INTEGER PRIMARY KEY UNIQUE, nombres VARCHAR, apellidos VARCHAR, usuario VARCHAR, password VARCHAR)";
+String sql = "CREATE TABLE tabla_usuario( id_usuario INTEGER PRIMARY KEY , nombres VARCHAR, apellidos VARCHAR, usuario VARCHAR UNIQUE, password VARCHAR)";
 
 
 //-------------------------------------------
@@ -57,18 +57,18 @@ String sql1= "CREATE TABLE SAT_profesional (Nit INTEGER PRIMARY KEY UNIQUE," +
 //-------------------------------------------
 public final static String UGG_informacion="UGG_informacion";
 public final String codigo_UGG= "codigo_UGG";
-public final String  nombre_UGG= " nombre_UGG";
+public final String  nombre_UGG= "nombre_UGG";
 public final String fecha_nacimiento="fecha_nacimiento";
 public final String  peso_UGG= "peso_UGG";
 public final String  numero_partos= "numero_partos";
 public final String  raza_UGG= "raza_UGG";
 public final String  fecha_venta= "fecha_venta";
-public final String  fecha_muerte= "fecha_muerte ";
+public final String  fecha_muerte= "fecha_muerte";
 public final String  motivo_muerte= "motivo_muerte";
 public final String  genero= "genero";
 public final String  cantidad_abortos= "cantidad_abortos";
 public final String  servicio_toro= "servicio_toro";
-//public final String  codi_finca= "codi_finca";
+public final String  codi_finca= "codigo_finca";
 public final String  tipo_animal= "tipo_animal";
 
 //----------------------------------------------------------------
@@ -104,7 +104,7 @@ public final String  departamento= "departamento";
 //----------------------------------------------------------------- 
 String finca="CREATE TABLE SAT_terceros_fincas (codigo_finca SMALLINT PRIMARY KEY UNIQUE, " +
 		"nombre_finca VARCHAR, " +
-		"nit_propietario FLOAT REFERENCES SAT_terceros_asociados (nit)," +
+		"nit_propietario integer REFERENCES SAT_terceros_asociados (nit)," +
 		"ciudad VARCHAR, ubicacion VARCHAR, " +
 		"hectareas FLOAT, latitud SMALLINT, longitud SMALLINT, " +
 		"mano_obra VARCHAR,  codigo_tipo_ordeno VARCHAR,  departamento VARCHAR)";
@@ -139,8 +139,9 @@ public final String codigo_fincas="codigo_fincas";
 //----------------------------------------------------------------
 //sentecia para crear la tabla cultivo
 //----------------------------------------------------------------
-String cultivo="CREATE TABLE SAT_cultivo(cod_cultivo SMALLINT PRIMARY KEY UNIQUE," +
-		"nom_cultivo VARCHAR, promedio_hectaria FLOAT, codigo_fincas SMALLINT REFERENCES SAT_finca_cultivo (codig_finca))";
+String cultivo= "CREATE TABLE SAT_cultivo (cod_cultivo SMALLINT PRIMARY KEY UNIQUE, " +
+		"nom_cultivo VARCHAR, promedio_hectarea FLOAT," +
+		" codigo_fincas SMALLINT REFERENCES SAT_terceros_fincas (codigo_finca))";
 
 
 //-----------------------------------------------------------
@@ -150,7 +151,7 @@ String cultivo="CREATE TABLE SAT_cultivo(cod_cultivo SMALLINT PRIMARY KEY UNIQUE
 public final static String SAT_terceros_asociados ="SAT_terceros_asociados";
 public final String nit_asociado="nit_asociado";
 public final String cod_finca= "cod_finca";
-public final String nombre_Completo= "nombre_completo";
+public final String nombre_Completo= "nombre_Completo";
 public final String Direccion= "Direccion";
 public final String telefono= "telefono";
 public final String Tipo_identificacion="tipo_identificacion";
@@ -158,7 +159,7 @@ public final String Tipo_identificacion="tipo_identificacion";
 //----------------------------------------------------------------
 //sentecia para crear la tabla asociado
 //----------------------------------------------------------------
-String asociado= "CREATE TABLE SAT_terceros_asociados (nit_asociado FLOAT PRIMARY KEY NOT NULL UNIQUE," +
+String asociado= "CREATE TABLE SAT_terceros_asociados (nit_asociado integer PRIMARY KEY UNIQUE," +
 		" cod_finca SMALLINT REFERENCES SAT_terceros_fincas (codigo_finca), nombre_Completo VARCHAR NOT NULL, " +
 		"Direccion  VARCHAR NOT NULL, telefono VARCHAR NOT NULL" +
 		", Tipo_identificacion VARCHAR NOT NULL)";
