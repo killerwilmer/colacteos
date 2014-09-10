@@ -148,6 +148,17 @@ public class asociadoDao {
 				return i;
 			}
 		 
+			//-------------------------------------------
+			// devuelve codigo de asociado
+			//------------------------------------
+
+			public Cursor darCodigoAsociado() throws SQLException
+			{
+				String[] columns = new String[] { "rowid AS _id", dbHelper.nit_asociado};
+				Cursor c = bd.query( true, SQLiteHelper.SAT_terceros_asociados, columns, null, null, null, null, null, null);
+				return c;
+			}
+		 
 		
 		 
 		 

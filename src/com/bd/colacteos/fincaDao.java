@@ -54,7 +54,7 @@ public class fincaDao {
 				String  codigo_tipo_ordeno,  String  departamento ) 
 		{
 			
-
+			abrir();
 			SQLiteDatabase db =dbHelper.getWritableDatabase();
 
 			ContentValues valores =new  ContentValues();
@@ -84,7 +84,7 @@ public class fincaDao {
 				String  codigo_tipo_ordeno,  String  departamento )
 		{	
 
-
+			abrir();
 			dbHelper.getWritableDatabase();
 			long estado=0;
 			try{
@@ -284,7 +284,7 @@ public class fincaDao {
 		/*		public ArrayList<Finca>darFincas(){
 						ArrayList<Finca> lista= new ArrayList<Finca>();
 						SQLiteDatabase d=dbHelper.getWritableDatabase();
-						d.execSQL("INSERT INTO SAT_terceros_fincas VALUES(1,'la pradera', '1085909452','pasto', 'chachagui', 10, 12,30, 'contratada', 1,2,'Nariño')");
+						d.execSQL("INSERT INTO SAT_terceros_fincas VALUES(1,'la pradera', '1085909452','pasto', 'chachagui', 10, 12,30, 'contratada', 1,2,'Nariï¿½o')");
 
 						SQLiteDatabase db= dbHelper.getReadableDatabase();
 
