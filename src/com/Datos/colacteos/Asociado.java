@@ -11,8 +11,13 @@ public class Asociado {
 	private String Tipo_identificacion;
 	
 	
-	public Asociado(String nit,String cod_finca, String nombre_Completo, String Direccion,String Tipo_identificacion){
+	public Asociado(String nit,String cod_finca, String nombre_Completo, String direccion,String telefono, String tipoIdentificacion){
 		this.setNit(nit);
+		this.setCod_finca(cod_finca);
+		this.setNombre_Completo(nombre_Completo);
+		this.setDireccion(direccion);
+		this.setTelefono(telefono);
+		this.setTipo_identificacion(tipoIdentificacion);
 	}
 
 

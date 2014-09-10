@@ -134,25 +134,32 @@ public class Registrar_Asociado extends Activity implements
 					Toast.makeText(getApplicationContext(),
 							"Todos los campos son necesarios", 1000).show();
 				} else {
+					
+					int estado=0;
+					
 
-					asociadoDao.crearAsociado(Nit, finca_asociado,
+					estado = asociadoDao.crearAsociado(Nit, finca_asociado,
 							nombre_asociado, direccion_asociado,
 							telefono_asociado, tipIdentificacion);
+					if(estado== -500){
+						Toast.makeText(getApplicationContext(), "Este nit ya esta registrdo", 1000).show();
+					}
+					else{
+						if (asociadoDao == null) {
+							Toast.makeText(getApplicationContext(),
+									"Asociado  No Registrado", 1000).show();
+						} else {
 
-					if (asociadoDao == null) {
-						Toast.makeText(getApplicationContext(),
-								"Asociado  No Registrado", 1000).show();
-					} else {
+							Toast.makeText(getApplicationContext(),
+									"Asociado Registrado con Exito", 1000).show();
+							nit.setText("");
+							codFinca.getSelectedItem();
+							nombres.setText("");
+							direccion.setText("");
+							telefono.setText("");
+							tipoIdentificacion.getSelectedItem();
 
-						Toast.makeText(getApplicationContext(),
-								"Asociado Registrado con Exito", 1000).show();
-						nit.setText("");
-						codFinca.getSelectedItem();
-						nombres.setText("");
-						direccion.setText("");
-						telefono.setText("");
-						tipoIdentificacion.getSelectedItem();
-
+						}
 					}
 				}
 			}

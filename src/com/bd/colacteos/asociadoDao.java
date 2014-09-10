@@ -1,4 +1,7 @@
 package com.bd.colacteos;
+import com.Datos.colacteos.Asociado;
+import com.Datos.colacteos.SAT_Profesional;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -51,24 +54,32 @@ public class asociadoDao {
 		//metodo para agregar un asociado
 		//---------------------------------------------------------
 		
-		public void crearAsociado(String nit_asociado,String cod_finca, String nombre_Completo, String Direccion , String telefono, String Tipo_identificacion)
+		public int crearAsociado(String nit_asociado,String cod_finca, String nombre_Completo, String Direccion , String telefono, String Tipo_identificacion)
 		{	
+			int estado = 0;
+			Asociado asociado = null;
+			asociado = buscarAsociado(nit_asociado);
+			if (asociado != null) {
+				estado = -500;
+			} else {
+				abrir();
+				dbHelper.getWritableDatabase();
 
-			dbHelper.getWritableDatabase();
-
-			ContentValues valores =new  ContentValues();
-			valores.put("nit_asociado", nit_asociado);
-			valores.put("cod_finca",cod_finca);
-			valores.put("nombre_Completo",nombre_Completo);
-			valores.put("Direccion", Direccion);
-			valores.put("telefono", telefono);
-			valores.put("Tipo_identificacion", Tipo_identificacion);
-			
+				ContentValues valores =new  ContentValues();
+				valores.put("nit_asociado", nit_asociado);
+				valores.put("cod_finca",cod_finca);
+				valores.put("nombre_Completo",nombre_Completo);
+				valores.put("Direccion", Direccion);
+				valores.put("telefono", telefono);
+				valores.put("Tipo_identificacion", Tipo_identificacion);
+				
 
 
-			bd.insert(SQLiteHelper.SAT_terceros_asociados, null, valores);
+				bd.insert(SQLiteHelper.SAT_terceros_asociados, null, valores);
 
-			//bd.close();
+				//bd.close();
+			}
+			return estado;
 	}
 		//--------------------------------------------------------------------------
 		// metodo que permite  leer datos de asociado
@@ -100,6 +111,23 @@ public class asociadoDao {
 			 String[] columnas= new  String[]{dbHelper.nit_asociado,dbHelper.cod_finca, dbHelper.nombre_Completo, dbHelper.Direccion, dbHelper.Tipo_identificacion};
 			 return bd.query(SQLiteHelper.SAT_terceros_asociados, columnas, dbHelper.nit_asociado+"?",new String[]{nit},  null,  null,  null,  null);
 		 }
+		 
+		 public Asociado buscarAsociado(String Nit) {
+				abrir();
+				dbHelper.getReadableDatabase();
+				String[] valores = { dbHelper.nit_asociado,dbHelper.cod_finca, dbHelper.nombre_Completo, dbHelper.Direccion, dbHelper.telefono, dbHelper.Tipo_identificacion };
+				Cursor c = bd.query(SQLiteHelper.SAT_terceros_asociados, valores,
+						"nit_asociado=" + Nit, null, null, null, null, null);
+				Asociado asociado = null;
+				if (c.moveToFirst()) {
+					asociado = new Asociado(c.getString(0),
+							c.getString(1), c.getString(2), c.getString(3), c.getString(4), c.getString(5));
+				}
+
+				bd.close();
+				c.close();
+				return asociado;
+			}
 		 
 		//----------------------------------------------------
 		 //metodo  que sirve para actualizar un asociado
