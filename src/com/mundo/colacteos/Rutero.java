@@ -1,6 +1,6 @@
 package com.mundo.colacteos;
 
-import com.mundo.colacteos.visita.Cargar_Visita;
+import com.mundo.colacteos.visita.Programacion_Visita;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -34,7 +34,7 @@ public class Rutero extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				Intent intt= new Intent(Rutero.this, Cargar_Visita.class);
+				Intent intt= new Intent(Rutero.this, Programacion_Visita.class);
 				startActivity(intt);
 
 			}

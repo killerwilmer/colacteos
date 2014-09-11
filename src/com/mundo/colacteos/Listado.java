@@ -2,8 +2,8 @@ package com.mundo.colacteos;
 
 import java.util.ArrayList;
 
-import com.mundo.colacteos.visita.Cargar_Visita;
-import com.mundo.colacteos.visita.Ejecutar_visitas;
+import com.mundo.colacteos.visita.Programacion_Visita;
+import com.mundo.colacteos.visita.Listas_Visitas;
 
 
 
@@ -70,7 +70,7 @@ public class Listado  extends Activity{
 
 			@Override
 			public void onClick(View arg0) {
-				Intent inte= new Intent(Listado.this,Ejecutar_visitas.class );
+				Intent inte= new Intent(Listado.this,Listas_Visitas.class );
 				startActivity(inte);
 			}
 		});
