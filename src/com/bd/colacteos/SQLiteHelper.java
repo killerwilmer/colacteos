@@ -215,11 +215,15 @@ String UGG_producciones=" CREATE TABLE UGG_produccion (cod_produccion SMALLINT P
 //-----------------------------------------------------------
 //campos de tabla de SAT visita
 //-------------------------------------------------------------
+//-----------------------------------------------------------
+//campos de tabla de SAT visita
+//-------------------------------------------------------------
 public final static String SAT_visita ="SAT_visita";
 public final String id_visita="id_visita";
 public final String cod_fincas= "cod_fincas";
 public final String fecha_visita= "fecha_visita";
 public final String hora_ingreso  = "hora_ingreso";
+public final String hora_salida  = "hora_salida";
 public final String clase_visita ="clase_visita";
 public final String cumple="cumple";
 public final String num_recetario=" num_recetario";
@@ -250,13 +254,14 @@ String tablaViCaAn ="CREATE TABLE visita_casuistica_animal (casuistica SMALLINT 
 //sentecia para crear la tabla SAT visita
 //------------------------------------------------------------------
 String visita="CREATE TABLE SAT_visita (id_visita SMALLINT PRIMARY KEY NOT NULL UNIQUE," +
-		" cod_fincas SMALLINT REFERENCES SAT_terceros_fincas (codigo_finca)," +
-		"fecha_visita DATE NOT NULL, hora_ingreso TIME NOT NULL, " +
-		"clase_visita VARCHAR NOT NULL , " +
-		"cumple VARCHAR NOT NULL, num_recetario INTEGER NOT NULL," +
-		"nit_profesional FLOAT REFERENCES SAT_profesional (Nit)," +
-		"tipo_visita SMALLINT REFERENCES SAT_tipo_visita (codigo_tipo_visita)," +
-		" observaciones TEXT , identificacion_asociado FLOAT REFERENCES SAT_terceros_asociados (nit))";
+" cod_fincas SMALLINT REFERENCES SAT_terceros_fincas (codigo_finca)," +
+"fecha_visita DATE NOT NULL, hora_ingreso TIME NOT NULL, " +
+"hora_salida TIME NOT NULL , " +
+"clase_visita VARCHAR NOT NULL , " +
+"cumple VARCHAR NOT NULL, num_recetario INTEGER NOT NULL , " +
+"nit_profesional ineter REFERENCES SAT_profesional (Nit), " +
+"tipo_visita SMALLINT REFERENCES SAT_tipo_visita (codigo_tipo_visita)," +
+" observaciones TEXT , identificacion_asociado ineteger REFERENCES SAT_terceros_asociados (nit_asociado))";
 //CHECK (([clase_Visita]='A' OR [clase_Visita]='Z' OR [clase_Visita]='V'))
 
 //-----------------------------------------------------------
