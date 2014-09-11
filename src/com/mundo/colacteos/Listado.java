@@ -2,6 +2,7 @@ package com.mundo.colacteos;
 
 import java.util.ArrayList;
 
+import com.mundo.colacteos.visita.Ejecutar_Visita;
 import com.mundo.colacteos.visita.Programacion_Visita;
 import com.mundo.colacteos.visita.Listas_Visitas;
 
@@ -78,12 +79,12 @@ public class Listado  extends Activity{
 		// ingresar al boton consulta visita
 		// -------------------------------------------------------------
 
-		consultar_visita = (Button) findViewById(R.id.btn_salir_rutero);
+		consultar_visita = (Button) findViewById(R.id.btn_cargarVisita);
 		consultar_visita.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View arg0) {
-				Intent i= new Intent(Listado.this, Consultar_Visita.class);
+				Intent i= new Intent(Listado.this, Ejecutar_Visita.class);
 				startActivity(i);
 				
 			}

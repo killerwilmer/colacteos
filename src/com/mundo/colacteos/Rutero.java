@@ -45,7 +45,7 @@ public class Rutero extends Activity {
 	//--------------------------------------------------------------------------
 	//inicializacion y metodo del boton salir de rutero
 	//--------------------------------------------------------------------------
-	salida= (Button)findViewById(R.id.btn_salir_rutero);
+	salida= (Button)findViewById(R.id.btn_cargarVisita);
 	salida.setOnClickListener(new OnClickListener() {
 		
 		@Override

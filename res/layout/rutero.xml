@@ -19,7 +19,7 @@
         android:text="Visita por solicitud" />
 
     <Button
-        android:id="@+id/btn_salir_rutero"
+        android:id="@+id/btn_cargarVisita"
         android:layout_width="134dp"
         android:layout_height="49dp"
         android:text="Salir" />

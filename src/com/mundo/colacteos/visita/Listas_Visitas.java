@@ -11,7 +11,7 @@ public class Listas_Visitas extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		setContentView(R.layout.ejecutar_visitas);
+		setContentView(R.layout.listas_visitas);
 	}
 	
 	

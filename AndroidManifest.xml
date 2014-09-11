@@ -62,6 +62,7 @@
         <activity android:name=".fincas.Modificar_Finca"></activity>
         <activity android:name=".ugg.Modificar_Animal"></activity>
         <activity android:name=".asociado.Modificar_Asociado"></activity>
+        <activity android:name=".visita.Ejecutar_Visita"></activity>
       
        
         
