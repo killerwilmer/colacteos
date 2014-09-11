@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-        <TextView
+       <TextView
             android:id="@+id/txt_codigoAnimal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -27,14 +27,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="fechaNacimiento"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/txt_pesoAnimal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="peso UGG"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/txt_razaAnimal"
@@ -48,62 +49,72 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="fecha venta"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/txt_fechaMuerte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="fecha muerte"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/txt_motivoMuerte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="motivo muerte"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge" 
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/txt_generoAnimal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="genero"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/txt_codigoFincaAnimal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="finca"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/txt_cantidadAbortos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="cant abortos"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge" 
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/txt_servicioToro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Servicios"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/txt_tipoAnimal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="tipo"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge" 
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/txt_numPartoss"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Partos"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:visibility="gone" />
+
 
 </LinearLayout>

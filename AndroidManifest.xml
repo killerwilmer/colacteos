@@ -60,6 +60,8 @@
         <activity android:name="com.colacteos.actividades.Modificar_Actividad"></activity>
         <activity android:name=".visita.Ejecutar_visitas"></activity>
         <activity android:name=".fincas.Modificar_Finca"></activity>
+        <activity android:name=".ugg.Modificar_Animal"></activity>
+      
        
         
     </application>
