@@ -40,16 +40,18 @@ public class SAT_VisitaDao {
 	//metodo que permite agregar una nueva visita
 	//-------------------------------------------------
 
-	public void agregarVisita( String cod_fincas,  String fecha_visita, 
-			String hora_ingreso,  String clase_visita, String cumple,String num_recetario,
+	public void agregarVisita( String id_visita, String cod_fincas,  String fecha_visita, 
+			String hora_ingreso, String hora_salida, String clase_visita, String cumple,String num_recetario,
 			String nit_profesional,String tipo_visita,String observaciones,String identificacion_asociado)
 	{
 
 		dbHelper.getWritableDatabase();
 		ContentValues valores =new  ContentValues();
+		valores.put("id_visita", id_visita);
 		valores.put("cod_fincas", cod_fincas);
 		valores.put("fecha_visita",fecha_visita);
 		valores.put("hora_ingreso ", hora_ingreso);
+		valores.put("hora_salida ", hora_salida);
 		valores.put("clase_visita", clase_visita);
 		valores.put("cumple",cumple);
 		valores.put("num_recetario ", num_recetario);
