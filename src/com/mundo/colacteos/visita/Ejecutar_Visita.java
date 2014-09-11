@@ -8,13 +8,13 @@ import java.io.IOException;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.mundo.colacteos.MainActivity;
+import com.bd.colacteos.SAT_VisitaDao;
+import com.bd.colacteos.asociadoDao;
 import com.mundo.colacteos.R;
 import com.mundo.colacteos.sistema.SimpleFileDialog;
 
@@ -24,6 +24,12 @@ public class Ejecutar_Visita extends Activity {
 //atributos
 //---------------------------------------------------------------------
 	private Button x;
+	
+	// --------------------------------------------
+	// enlace a la clase vistadao
+	// -------------------------------------------------
+
+	SAT_VisitaDao visitaDao = new SAT_VisitaDao(this);
 
 //-----------------------------------------------------------------------
 //metodo que permite crear la instancia de la clase
@@ -34,6 +40,11 @@ public class Ejecutar_Visita extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ejecutar_visita);
 		Button dirChooserButton = (Button) findViewById(R.id.chooseDirButton);
+		
+		//Iniciar atributos
+		visitaDao = new SAT_VisitaDao(this);
+		visitaDao.abrir();
+		
         dirChooserButton.setOnClickListener(new OnClickListener() 
         {
 			String m_chosen;
@@ -67,7 +78,18 @@ public class Ejecutar_Visita extends Activity {
 	}
 	
 	public void importDataFromCSV(String ruta) {
-		int i = 0;
+		String id_visita = null;
+		String cod_fincas = null;
+		String fecha_visita = null;
+		String hora_ingreso = null;
+		String hora_salida = null;
+		String clase_visita = null;
+		String cumple = null;
+		String num_recetario = null;
+		String nit_profesional = null;
+		String tipo_visita = null;
+		String observaciones = null;
+		String identificacion_asociado = null;
 
 		boolean flag_is_header = false;
 
@@ -87,6 +109,23 @@ public class Ejecutar_Visita extends Activity {
 
 				String[] insertValues = line.split(";");
 				if (flag_is_header) {
+					
+					id_visita = insertValues[0];
+					cod_fincas = insertValues[1];
+					fecha_visita = insertValues[2];
+					hora_ingreso = insertValues[3];
+					hora_salida = insertValues[4];
+					clase_visita = insertValues[5];
+					cumple = insertValues[6];
+					num_recetario = insertValues[7];
+					nit_profesional = insertValues[8];
+					tipo_visita = insertValues[9];
+					observaciones = insertValues[10];
+					identificacion_asociado = insertValues[11];
+					
+					visitaDao.agregarVisita(
+							id_visita, cod_fincas, fecha_visita, hora_ingreso, hora_salida, clase_visita, 
+							cumple, num_recetario, nit_profesional, tipo_visita, observaciones, identificacion_asociado);
 
 					//dbHandler = new DatabaseHandler(context);
 					//dbHandler.open();
