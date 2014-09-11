@@ -50,7 +50,7 @@ public class Ejecutar_Visita extends Activity {
 					{
 						// The code in this function will be executed when the dialog OK button is pushed 
 						m_chosen = chosenDir;
-						Toast.makeText(Ejecutar_Visita.this, "Chosen FileOpenDialog File: " + 
+						Toast.makeText(Ejecutar_Visita.this, "Ruta: " + 
 								m_chosen, Toast.LENGTH_LONG).show();
 						importDataFromCSV(m_chosen);
 					}
@@ -83,22 +83,22 @@ public class Ejecutar_Visita extends Activity {
 		String line = null;
 
 		try {
-			/*while ((line = bufRdr.readLine()) != null) {
+			while ((line = bufRdr.readLine()) != null) {
 
 				String[] insertValues = line.split(";");
 				if (flag_is_header) {
 
-					dbHandler = new DatabaseHandler(context);
-					dbHandler.open();
-					long row=dbHandler.insertUserInfo(insertValues[1],
-							insertValues[2]);
-					Log.e("no. of rows inserted", ""+row);
+					//dbHandler = new DatabaseHandler(context);
+					//dbHandler.open();
+					//long row=dbHandler.insertUserInfo(insertValues[1],
+					//		insertValues[2]);
+					//Log.e("no. of rows inserted", ""+row);
 
 				} else {
 					flag_is_header = true;
 				}
 			}
-			dbHandler.close();*/
+			//dbHandler.close();
 			bufRdr.close();
 		} catch (IOException e) {
 			e.printStackTrace();
