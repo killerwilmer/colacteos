@@ -24,4 +24,36 @@
         android:text="Nit_asociado"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <TextView
+        android:id="@+id/textCodF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="finca"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/txt_TipoIdenti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="identificcion"
+        android:textAppearance="?android:attr/textAppearanceLarge" 
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/txtDireccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Direccion"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/txt_telefono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Telefono"
+        android:textAppearance="?android:attr/textAppearanceLarge" 
+        android:visibility="gone"/>
+
 </LinearLayout>

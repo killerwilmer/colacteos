@@ -72,11 +72,37 @@ public class Registrar_Asociado extends Activity implements
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		tipoIdentificacion.setAdapter(adapter);
 		bundle = getIntent().getExtras();
+		
+		
+		//------------------------------------------------------------------------
+		//spiner codigo finca
+		//------------------------------------------------------------------------
+		fincaDao	dbcon= new fincaDao(this);
+		dbcon.abrir();
+		codFinca=(Spinner)findViewById(R.id.spnCodFinca);//id del spinner
+		Cursor cursor=dbcon.darCodigoFinca();
+		SQLiteHelper SqlHelper;
+		SqlHelper=new SQLiteHelper(this);
+		String[] from = new String[] { SqlHelper.codigo_finca}; 
+		//SqlHelper.cod_sistema, 
+		int[] to = new int[] { android.R.id.text1 };
+		//android.R.id.text2};
+		SimpleCursorAdapter a= new SimpleCursorAdapter(Registrar_Asociado.this, android.R.layout.simple_list_item_1, cursor, from, to);	
+		a.notifyDataSetChanged();
+		codFinca.setAdapter(a);
+
+
+		
+	
+		
+		//---------------------------------------------------------------
+		//opcion del boton registrar asociado
+		//---------------------------------------------------------------
 
 		// ------------------------------------------------------------------------
 		// spiner codigo finca
 		// ------------------------------------------------------------------------
-		fincaDao dbcon = new fincaDao(this);
+		/*fincaDao dbcon = new fincaDao(this);
 		dbcon.abrir();
 		
 		Cursor cursor = dbcon.darCodigoFinca();
@@ -89,7 +115,7 @@ public class Registrar_Asociado extends Activity implements
 	    cursor.close();
 	    
 	    ArrayAdapter adapterk = new ArrayAdapter(this,android.R.layout.simple_spinner_item, arraylist);
-	    codFinca.setAdapter(adapterk);
+	    codFinca.setAdapter(adapterk);*/
 		/*
 		SQLiteHelper SqlHelper;
 		SqlHelper = new SQLiteHelper(this);
@@ -114,17 +140,15 @@ public class Registrar_Asociado extends Activity implements
 			@Override
 			public void onClick(View v) {
 
-				// Cursor finca=(Cursor)codFinca.getSelectedItem();
+				 Cursor finca=(Cursor)codFinca.getSelectedItem();
 				String nombre_asociado = nombres.getText().toString();
 				String Nit = nit.getText().toString();
-				String finca_asociado = codFinca.getSelectedItem().toString();
-				String tipIdentificacion = tipoIdentificacion.getSelectedItem()
-						.toString();
+				//String finca_asociado = codFinca.getSelectedItem().toString();
+				String tipIdentificacion = tipoIdentificacion.getSelectedItem()	.toString();
 				String direccion_asociado = direccion.getText().toString();
 				String telefono_asociado = telefono.getText().toString();
 
-				// String
-				// finca_asociado=finca.getString(finca.getColumnIndex("cod_finca"));
+				String finca_asociado=finca.getString(finca.getColumnIndex("codigo_finca"));
 
 				if (nombre_asociado.trim().equals("") || Nit.trim().equals("")
 						|| finca_asociado.trim().equals("")

@@ -154,7 +154,7 @@ public final String cod_finca= "cod_finca";
 public final String nombre_Completo= "nombre_Completo";
 public final String Direccion= "Direccion";
 public final String telefono= "telefono";
-public final String Tipo_identificacion="tipo_identificacion";
+public final String tipo_identificacion="tipo_identificacion";
 
 //----------------------------------------------------------------
 //sentecia para crear la tabla asociado
@@ -162,7 +162,7 @@ public final String Tipo_identificacion="tipo_identificacion";
 String asociado= "CREATE TABLE SAT_terceros_asociados (nit_asociado integer PRIMARY KEY UNIQUE," +
 		" cod_finca SMALLINT REFERENCES SAT_terceros_fincas (codigo_finca), nombre_Completo VARCHAR NOT NULL, " +
 		"Direccion  VARCHAR NOT NULL, telefono VARCHAR NOT NULL" +
-		", Tipo_identificacion VARCHAR NOT NULL)";
+		", tipo_identificacion VARCHAR NOT NULL)";
 
 
 

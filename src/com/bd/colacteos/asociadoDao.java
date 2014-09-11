@@ -54,7 +54,7 @@ public class asociadoDao {
 		//metodo para agregar un asociado
 		//---------------------------------------------------------
 		
-		public int crearAsociado(String nit_asociado,String cod_finca, String nombre_Completo, String Direccion , String telefono, String Tipo_identificacion)
+		public int crearAsociado(String nit_asociado,String cod_finca, String nombre_Completo, String Direccion , String telefono, String tipo_identificacion)
 		{	
 			int estado = 0;
 			Asociado asociado = null;
@@ -71,7 +71,7 @@ public class asociadoDao {
 				valores.put("nombre_Completo",nombre_Completo);
 				valores.put("Direccion", Direccion);
 				valores.put("telefono", telefono);
-				valores.put("Tipo_identificacion", Tipo_identificacion);
+				valores.put("tipo_identificacion", tipo_identificacion);
 				
 
 
@@ -86,8 +86,7 @@ public class asociadoDao {
 		//--------------------------------------------------------------------------
 		
 		public Cursor leerAsociados() {
-			String[] allColumns = new String[] {"rowid AS _id", dbHelper.nit_asociado, dbHelper.nombre_Completo};
-					//dbHelper.Direccion, dbHelper.telefono, dbHelper.Tipo_identificacion };
+			String[] allColumns = new String[] {"rowid AS _id", dbHelper.nit_asociado, dbHelper.nombre_Completo, dbHelper.cod_finca,  dbHelper.tipo_identificacion,  dbHelper.Direccion, dbHelper.telefono };
 			Cursor c = bd.query(SQLiteHelper.SAT_terceros_asociados, allColumns, null, null, null,null, null);
 			if (c != null) {
 				c.moveToFirst();
@@ -110,14 +109,14 @@ public class asociadoDao {
 		 
 		 
 		 public Cursor buscarUsuario(String nit){
-			 String[] columnas= new  String[]{dbHelper.nit_asociado,dbHelper.cod_finca, dbHelper.nombre_Completo, dbHelper.Direccion, dbHelper.Tipo_identificacion};
+			 String[] columnas= new  String[]{dbHelper.nit_asociado,dbHelper.cod_finca, dbHelper.nombre_Completo, dbHelper.Direccion, dbHelper.tipo_identificacion};
 			 return bd.query(SQLiteHelper.SAT_terceros_asociados, columnas, dbHelper.nit_asociado+"?",new String[]{nit},  null,  null,  null,  null);
 		 }
 		 
 		 public Asociado buscarAsociado(String Nit) {
 				abrir();
 				dbHelper.getReadableDatabase();
-				String[] valores = { dbHelper.nit_asociado,dbHelper.cod_finca, dbHelper.nombre_Completo, dbHelper.Direccion, dbHelper.telefono, dbHelper.Tipo_identificacion };
+				String[] valores = { dbHelper.nit_asociado,dbHelper.cod_finca, dbHelper.nombre_Completo, dbHelper.Direccion, dbHelper.telefono, dbHelper.tipo_identificacion };
 				Cursor c = bd.query(SQLiteHelper.SAT_terceros_asociados, valores,
 						"nit_asociado=" + Nit, null, null, null, null, null);
 				Asociado asociado = null;
@@ -135,14 +134,15 @@ public class asociadoDao {
 		 //metodo  que sirve para actualizar un asociado
 		 //---------------------------------------------------
 		 
-		 public int actualizarAsociado(long nit_asociado,String cod_finca, String nombre_Completo, String Direccion,String Tipo_identificacion ) {
+		 public int actualizarAsociado(long nit_asociado,String cod_finca, String nombre_Completo, String Direccion,String tipo_identificacion, String telefono ) {
 				
 					ContentValues valores = new ContentValues();
 					valores.put("nit_asociado", nit_asociado);
 					valores.put("cod_finca",cod_finca);
 					valores.put("nombre_Completo",nombre_Completo);
 					valores.put("Direccion", Direccion);
-					valores.put("Tipo_identificacion", Tipo_identificacion);
+					valores.put("tipo_identificacion", tipo_identificacion);
+					valores.put("telefono", telefono);
 					
 					int i= bd.update(SQLiteHelper.SAT_terceros_asociados, valores, dbHelper.nit_asociado+"="+ nit_asociado, null);
 									
