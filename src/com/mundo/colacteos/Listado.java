@@ -2,12 +2,6 @@ package com.mundo.colacteos;
 
 import java.util.ArrayList;
 
-import com.mundo.colacteos.visita.Ejecutar_Visita;
-import com.mundo.colacteos.visita.Programacion_Visita;
-import com.mundo.colacteos.visita.Listas_Visitas;
-
-
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +12,9 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.mundo.colacteos.visita.Ejecutar_Visita;
+import com.mundo.colacteos.visita.Listas_Visitas;
 
 public class Listado  extends Activity{
 	
@@ -63,7 +60,7 @@ public class Listado  extends Activity{
 		});
 
 		// -----------------------------------------------------------------
-		// ingresar al boton programacion visita
+		// ingresar al boton muestra visita
 		// -------------------------------------------------------------
 
 		programacionVisita = (Button) findViewById(R.id.btn_programVisita);
@@ -76,7 +73,7 @@ public class Listado  extends Activity{
 			}
 		});
 		// -----------------------------------------------------------------
-		// ingresar al boton consulta visita
+		// ingresar al boton carga visita
 		// -------------------------------------------------------------
 
 		consultar_visita = (Button) findViewById(R.id.btn_cargarVisita);
