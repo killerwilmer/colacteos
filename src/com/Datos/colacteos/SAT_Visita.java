@@ -6,6 +6,7 @@ private long id_visita;
 private String cod_fincas;
 private  String fecha_visita;
 private String hora_ingreso;
+private String hora_salida;
 private String clase_visita;
 private String cumple;
 private String num_recetario;
@@ -16,7 +17,7 @@ private String identificacion_asociado;
 
 
 public SAT_Visita(long id_visita,String cod_fincas,  String fecha_visita, 
-		String hora_ingreso,  String clase_visita, String cumple,String num_recetario,
+		String hora_ingreso,  String hora_salida, String clase_visita, String cumple,String num_recetario,
 		String nit_profesional,String tipo_visita,String observaciones,String identificacion_asociado){
 	
 	
@@ -24,6 +25,7 @@ public SAT_Visita(long id_visita,String cod_fincas,  String fecha_visita,
 	this.setCod_fincas(cod_fincas);
 	this.setFecha_visita(fecha_visita);
 	this.setHora_ingreso(hora_ingreso);
+	this.setHora_salida(hora_salida);
 	this.setClase_visita(clase_visita);
 	this.setCumple(cumple);
 	this.setNum_recetario(num_recetario);
@@ -31,6 +33,15 @@ public SAT_Visita(long id_visita,String cod_fincas,  String fecha_visita,
 	this.setTipo_visita(tipo_visita);
 	this.setObservaciones(observaciones);
 	this.setIdentificacion_asociado(identificacion_asociado);
+}
+
+public String getHora_salida() {
+	return hora_salida;
+}
+
+
+public void setHora_salida(String hora_salida) {
+	this.hora_salida = hora_salida;
 }
 
 

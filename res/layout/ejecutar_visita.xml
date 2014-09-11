@@ -10,4 +10,11 @@
         android:layout_height="wrap_content"
         android:text="Buscar Archivo" />
 
+    <TextView
+        android:id="@+id/lblLog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.94"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
 </LinearLayout>

@@ -11,10 +11,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bd.colacteos.SAT_VisitaDao;
-import com.bd.colacteos.asociadoDao;
 import com.mundo.colacteos.R;
 import com.mundo.colacteos.sistema.SimpleFileDialog;
 
@@ -123,9 +123,15 @@ public class Ejecutar_Visita extends Activity {
 					observaciones = insertValues[10];
 					identificacion_asociado = insertValues[11];
 					
-					visitaDao.agregarVisita(
+					long idInsert = visitaDao.agregarVisita(
 							id_visita, cod_fincas, fecha_visita, hora_ingreso, hora_salida, clase_visita, 
 							cumple, num_recetario, nit_profesional, tipo_visita, observaciones, identificacion_asociado);
+					
+					if (idInsert == -500){
+						Toast.makeText(Ejecutar_Visita.this, "el id de la visita ya existe", Toast.LENGTH_LONG).show();
+						TextView lblLog = (TextView)findViewById(R.id.lblLog);
+						lblLog.setText("El id " + id_visita + " ya existe " + "\n");
+					}
 
 					//dbHandler = new DatabaseHandler(context);
 					//dbHandler.open();
