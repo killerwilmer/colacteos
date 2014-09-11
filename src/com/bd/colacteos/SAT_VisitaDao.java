@@ -44,7 +44,8 @@ public class SAT_VisitaDao {
 			String hora_ingreso, String hora_salida, String clase_visita, String cumple,String num_recetario,
 			String nit_profesional,String tipo_visita,String observaciones,String identificacion_asociado)
 	{
-
+		//id_visita unica
+		//
 		dbHelper.getWritableDatabase();
 		ContentValues valores =new  ContentValues();
 		valores.put("id_visita", id_visita);

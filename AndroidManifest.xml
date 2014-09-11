@@ -65,6 +65,7 @@
         <activity android:name=".asociado.Modificar_Asociado"></activity>
         <activity android:name=".visita.Ejecutar_Visita"></activity>
         <activity android:name=".visita.Listas_Visitas"></activity>
+        <activity android:name=".visita.Programacion_Visita"></activity>
       
        
         
